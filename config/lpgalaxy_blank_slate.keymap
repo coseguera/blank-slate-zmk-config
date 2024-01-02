@@ -12,23 +12,22 @@
 #define TBLE_ORTHO   1
 
 &mt {
-    quick_tap_ms = <200>;
+    quick-tap-ms = <200>;
     flavor = "balanced";
 };
 
 &lt {
-    quick_tap_ms = <200>;
-    tapping_term_ms = <250>;
+    quick-tap-ms = <200>;
+    tapping-term-ms = <250>;
 };
 
 / {
     ht: hold_tap {
         compatible = "zmk,behavior-hold-tap";
-        label = "HOLD_TAP";
         #binding-cells = <2>;
         flavor = "hold-preferred";
-        tapping_term_ms = <200>;
-        quick_tap_ms = <200>;
+        tapping-term-ms = <200>;
+        quick-tap-ms = <200>;
         bindings = <&kp>, <&kp>;
     };
 };
@@ -43,28 +42,28 @@
     combos {
         compatible = "zmk,combos";
         combo_grave {
-            timeout_ms = <50>;
-            key_positions = <0 1>;
+            timeout-ms = <50>;
+            key-positions = <0 1>;
             bindings = <&kp GRAVE>;
         };
         combo_esc {
-            timeout_ms = <50>;
-            key_positions = <1 2>;
+            timeout-ms = <50>;
+            key-positions = <1 2>;
             bindings = <&kp ESC>;
         };
         combo_tab {
-            timeout_ms = <50>;
-            key_positions = <13 14>;
+            timeout-ms = <50>;
+            key-positions = <13 14>;
             bindings = <&kp TAB>;
         };
         combo_dqt {
-            timeout_ms = <50>;
-            key_positions = <19 20>;
+            timeout-ms = <50>;
+            key-positions = <19 20>;
             bindings = <&kp DQT>;
         };
         combo_sqt {
-            timeout_ms = <50>;
-            key_positions = <20 21>;
+            timeout-ms = <50>;
+            key-positions = <20 21>;
             bindings = <&kp SQT>;
         };
     };
