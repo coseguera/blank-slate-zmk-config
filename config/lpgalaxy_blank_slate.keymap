@@ -17,7 +17,7 @@
 &mt {
   quick_tap_ms = <200>;
   flavor = "balanced";
-}
+};
 
 &lt {
   quick_tap_ms = <200>;
@@ -120,8 +120,6 @@
               &none     &none     &none     &bt BT_CLR &trans    &none &none &none &none &none &none &trans
             >;
         };
-
-
     };
 };
 
