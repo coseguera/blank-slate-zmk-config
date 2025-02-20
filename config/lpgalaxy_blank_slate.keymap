@@ -44,11 +44,6 @@
 
     combos {
       compatible = "zmk,combos";
-      combo_grave {
-        timeout-ms = <50>;
-        key-positions = <0 1>;
-        bindings = <&kp GRAVE>;
-      };
       combo_esc {
         timeout-ms = <50>;
         key-positions = <1 2>;
@@ -90,7 +85,7 @@
               &kp Q        &kp W &kp E &kp R          &kp T       &none &soft_off &kp Y       &kp U    &kp I          &kp O         &kp P
               &kp A        &kp S &kp D &kp F          &kp G       &none &mo 3     &kp H       &kp J    &kp K          &kp L         &mt LGUI SEMI
               &ht LSHIFT Z &kp X &kp C &mt LALT V     &mt LCTRL B &none &none     &kp N       &kp M    &mt LALT COMMA &mt LCTRL DOT &ht RSHIFT SLASH
-              &none        &none &none &mt LGUI MINUS &lt 2 ENTER &none &none     &lt 1 SPACE &kp BSPC &none          &none         &none
+              &kp GRAVE    &none &none &mt LGUI MINUS &lt 2 ENTER &none &none     &lt 1 SPACE &kp BSPC &none          &none         &none
             >;
         };
 
