@@ -39,6 +39,7 @@
 };
 
 #define BT(n) BT_SEL n
+#define meh LS(LA(LCTRL))
 
 / {
     chosen {
@@ -90,10 +91,10 @@
         base_layer {
             label = "Base";
             bindings = <
-              &kp Q        &kp W &kp E &kp R          &kp T       &none &none &kp Y       &kp U    &kp I          &kp O         &kp P
-              &kp A        &kp S &kp D &kp F          &kp G       &none &none &kp H       &kp J    &kp K          &kp L         &mt LGUI SEMI
-              &ht LSHIFT Z &kp X &kp C &mt LALT V     &mt LCTRL B &none &none &kp N       &kp M    &mt LALT COMMA &mt LCTRL DOT &ht RSHIFT SLASH
-              &none        &none &none &mt LGUI MINUS &lt 2 ENTER &none &none &lt 1 SPACE &kp BSPC &mkp LCLK      &none         &soft_off
+              &kp Q        &kp W &kp E   &kp R          &kp T       &none &none &kp Y       &kp U    &kp I          &kp O         &kp P
+              &kp A        &kp S &kp D   &kp F          &kp G       &none &none &kp H       &kp J    &kp K          &kp L         &mt LGUI SEMI
+              &ht LSHIFT Z &kp X &kp C   &mt LALT V     &mt LCTRL B &none &none &kp N       &kp M    &mt LALT COMMA &mt LCTRL DOT &ht RSHIFT SLASH
+              &none        &none &kp meh &mt LGUI MINUS &lt 2 ENTER &none &none &lt 1 SPACE &kp BSPC &mkp LCLK      &none         &soft_off
             >;
         };
 
