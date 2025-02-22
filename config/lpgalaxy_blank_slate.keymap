@@ -16,7 +16,6 @@
 
 #define TBLE_ORTHO   1
 
-
 &mt {
   quick_tap_ms = <200>;
   flavor = "balanced";
@@ -39,7 +38,11 @@
 };
 
 #define BT(n) BT_SEL n
-#define meh LS(LA(LCTRL))
+
+#define mehh LS(LA(LC(H)))
+#define mehl LS(LA(LC(L)))
+#define mehk LS(LA(LC(K)))
+#define tmut LS(LG(M)) # Teams Mute Mic
 
 / {
     chosen {
@@ -91,10 +94,10 @@
         base_layer {
             label = "Base";
             bindings = <
-              &kp Q        &kp W &kp E   &kp R          &kp T       &none &none &kp Y       &kp U    &kp I          &kp O         &kp P
-              &kp A        &kp S &kp D   &kp F          &kp G       &none &none &kp H       &kp J    &kp K          &kp L         &mt LGUI SEMI
-              &ht LSHIFT Z &kp X &kp C   &mt LALT V     &mt LCTRL B &none &none &kp N       &kp M    &mt LALT COMMA &mt LCTRL DOT &ht RSHIFT SLASH
-              &none        &none &kp meh &mt LGUI MINUS &lt 2 ENTER &none &none &lt 1 SPACE &kp BSPC &mkp LCLK      &none         &soft_off
+              &kp Q        &kp W &kp E &kp R          &kp T       &none &none &kp Y       &kp U    &kp I          &kp O         &kp P
+              &kp A        &kp S &kp D &kp F          &kp G       &none &none &kp H       &kp J    &kp K          &kp L         &mt LGUI SEMI
+              &ht LSHIFT Z &kp X &kp C &mt LALT V     &mt LCTRL B &none &none &kp N       &kp M    &mt LALT COMMA &mt LCTRL DOT &ht RSHIFT SLASH
+              &none        &none &mo 3 &mt LGUI MINUS &lt 2 ENTER &none &none &lt 1 SPACE &kp BSPC &mkp LCLK      &none         &soft_off
             >;
         };
 
@@ -103,7 +106,7 @@
               &kp N1     &kp N2   &kp N3   &kp N4   &kp N5    &none &none &kp N6    &kp N7   &kp N8    &kp N9    &kp N0
               &kp EXCL   &kp AT   &kp HASH &kp DLLR &kp PRCNT &none &none &kp CARET &kp AMPS &kp ASTRK &kp LPAR  &kp RPAR
               &kp LSHIFT &kp LBKT &kp RBKT &kp LBRC &kp RBRC  &none &none &kp LEFT  &kp DOWN &kp UP    &kp RIGHT &trans
-              &none      &none    &none    &trans   &mo 3     &none &none &trans    &trans   &none     &none     &trans
+              &none      &none    &none    &trans   &trans    &none &none &trans    &trans   &none     &none     &trans
             >;
         };
 
@@ -118,10 +121,10 @@
 
         third_layer {
             bindings = <
-              &none     &none     &none     &none      &none     &none &none &none &none &none &none &none
-              &bt BT(0) &bt BT(1) &bt BT(2) &bt BT(3)  &bt BT(4) &none &none &none &none &none &none &none
-              &none     &none     &none     &none      &none     &none &none &none &none &none &none &none
-              &none     &none     &none     &bt BT_CLR &trans    &none &none &none &none &none &none &trans
+              &none     &none     &none     &none      &none     &none &none &none    &none    &none    &none    &none
+              &bt BT(0) &bt BT(1) &bt BT(2) &bt BT(3)  &bt BT(4) &none &none &kp mehh &none    &kp mehk &kp mehl &none
+              &none     &none     &none     &none      &none     &none &none &none    &kp tmut &none    &none    &none
+              &none     &none     &trans    &bt BT_CLR &none     &none &none &none    &none    &none    &none    &trans
             >;
         };
     };
