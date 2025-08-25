@@ -38,7 +38,7 @@
 };
 
 / {
-  hm: hold_tap {
+  hm: hold_mouse {
     compatible = "zmk,behavior-hold-tap";
     #binding-cells = <2>;
     flavor = "hold-preferred";
