@@ -37,11 +37,20 @@
   };
 };
 
+/ {
+  hm: hold_tap {
+    compatible = "zmk,behavior-hold-tap";
+    #binding-cells = <2>;
+    flavor = "hold-preferred";
+    tapping-term-ms = <200>;
+    quick_tap_ms = <200>;
+    bindings = <&kp>, <&mkp>;
+  };
+};
+
 #define BT(n) BT_SEL n
 
-#define mehh LS(LA(LC(H)))
-#define mehl LS(LA(LC(L)))
-#define mehk LS(LA(LC(K)))
+#define meh LS(LA(LCTRL))
 
 / {
     chosen {
@@ -65,16 +74,6 @@
         key-positions = <13 14>;
         bindings = <&kp TAB>;
       };
-      combo_equal {
-        timeout-ms = <50>;
-        key-positions = <14 15>;
-        bindings = <&kp EQUAL>;
-      };
-      combo_plus {
-        timeout-ms = <50>;
-        key-positions = <15 16>;
-        bindings = <&kp PLUS>;
-      };
       combo_dqt {
         timeout-ms = <50>;
         key-positions = <19 20>;
@@ -93,37 +92,37 @@
         base_layer {
             label = "Base";
             bindings = <
-              &kp Q        &kp W &kp E &kp R          &kp T       &none &none &kp Y       &kp U    &kp I          &kp O         &kp P
-              &kp A        &kp S &kp D &kp F          &kp G       &none &none &kp H       &kp J    &kp K          &kp L         &mt LGUI SEMI
-              &ht LSHIFT Z &kp X &kp C &mt LALT V     &mt LCTRL B &none &none &kp N       &kp M    &mt LALT COMMA &mt LCTRL DOT &ht RSHIFT SLASH
-              &none        &none &mo 3 &mt LGUI MINUS &lt 2 ENTER &none &none &lt 1 SPACE &kp BSPC &mkp LCLK      &none         &soft_off
+              &kp Q        &kp W &kp E           &kp R          &kp T       &mo 3 &soft_off &kp Y       &kp U    &kp I         &kp O         &kp P
+              &kp A        &kp S &kp D           &kp F          &kp G       &none &none     &kp H       &kp J    &kp K         &kp L         &mt LGUI SEMI
+              &ht LSHIFT Z &kp X &kp C           &kp V          &kp B       &none &none     &kp N       &kp M    &kp COMMA     &mt LCTRL DOT &ht RSHIFT SLASH
+              &none        &none &mt LCTRL EQUAL &mt LGUI MINUS &lt 2 ENTER &none &none     &lt 1 SPACE &kp BSPC &hm LALT LCLK &none         &non
             >;
         };
 
         first_layer {
             bindings = <
-              &kp N1     &kp N2   &kp N3   &kp N4   &kp N5    &none &none &kp N6    &kp N7   &kp N8    &kp N9    &kp N0
-              &kp EXCL   &kp AT   &kp HASH &kp DLLR &kp PRCNT &none &none &kp CARET &kp AMPS &kp ASTRK &kp LPAR  &kp RPAR
-              &kp LSHIFT &kp LBKT &kp RBKT &kp LBRC &kp RBRC  &none &none &kp LEFT  &kp DOWN &kp UP    &kp RIGHT &trans
-              &none      &none    &none    &trans   &trans    &none &none &trans    &trans   &none     &none     &trans
+              &kp N1     &kp N2   &kp N3   &kp N4   &kp N5    &none &trans &kp N6    &kp N7   &kp N8    &kp N9    &kp N0
+              &kp EXCL   &kp AT   &kp HASH &kp DLLR &kp PRCNT &none &none  &kp CARET &kp AMPS &kp ASTRK &kp LPAR  &kp RPAR
+              &kp LSHIFT &kp LBKT &kp RBKT &kp LBRC &kp RBRC  &none &none  &kp LEFT  &kp DOWN &kp UP    &kp RIGHT &trans
+              &none      &none    &trans   &trans   &trans    &none &none  &trans    &trans   &kp DOT   &none     &trans
             >;
         };
 
         second_layer {
             bindings = <
-              &kp F1     &kp F2       &kp F3       &kp F4  &kp F5  &none &none &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT &kp C_BRI_UP
-              &kp F6     &kp F7       &kp F8       &kp F9  &kp F10 &none &none &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &kp C_BRI_DN
-              &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp F11 &kp F12 &none &none &kp HOME       &kp PG_DN      &kp PG_UP    &kp END         &kp BSLH
-              &none      &none        &none        &kp DEL &trans  &none &none &mkp LCLK      &mkp RCLK      &none        &none           &trans
+              &kp F1     &kp F2       &kp F3       &kp F4  &kp F5  &none &trans &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT &kp C_BRI_UP
+              &kp F6     &kp F7       &kp F8       &kp F9  &kp F10 &none &none  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &kp C_BRI_DN
+              &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp F11 &kp F12 &none &none  &kp HOME       &kp PG_DN      &kp PG_UP    &kp END         &kp BSLH
+              &none      &none        &kp meh      &kp DEL &trans  &none &none  &mkp LCLK      &mkp RCLK      &none        &none           &trans
             >;
         };
 
         third_layer {
             bindings = <
-              &none     &none     &none     &none      &none     &none &none &none    &none    &none    &none    &none
-              &bt BT(0) &bt BT(1) &bt BT(2) &bt BT(3)  &bt BT(4) &none &none &kp mehh &none    &kp mehk &kp mehl &none
-              &none     &none     &none     &none      &none     &none &none &none    &none    &none    &none    &none
-              &none     &none     &trans    &bt BT_CLR &none     &none &none &none    &none    &none    &none    &trans
+              &none     &none     &none     &none      &none     &trans &trans &none &none &none &none &none
+              &bt BT(0) &bt BT(1) &bt BT(2) &bt BT(3)  &bt BT(4) &none  &none  &none &none &none &none &none
+              &none     &none     &none     &none      &none     &none  &none  &none &none &none &none &none
+              &none     &none     &none     &bt BT_CLR &none     &none  &none  &none &none &none &none &none
             >;
         };
     };
